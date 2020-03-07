@@ -6,7 +6,8 @@ let session = require('express-session');
 let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
-let userRouter = require('./routes/apis/v1/User');
+let userRouter = require('./routes/apis/mock/User')
+// let userRouter = require('./routes/apis/v1/User');
 // var testRouter = require('./routes/test');
 
 let app = express();
@@ -35,7 +36,7 @@ app.all('*', function(req, res, next) {
 });
 
 app.use(session({
-  name: 'xmdsmdsj.login',
+  name: 'mc_lottery.login',
   secret: sessionEncryptionToken,
   resave: true,
   saveUninitialized: false,
@@ -43,7 +44,8 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
-app.use('/v1/User', userRouter);
+app.use('/mock/User', userRouter);
+// app.use('/v1/User', userRouter);
 // app.use('/test/', testRouter);
 
 // catch 404 and forward to error handler
