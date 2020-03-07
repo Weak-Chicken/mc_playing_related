@@ -7,6 +7,9 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let userRouter = require('./routes/apis/mock/User')
+let cardRouter = require('./routes/apis/mock/Card')
+let cardPoolRouter = require('./routes/apis/mock/CardPool')
+let lotteryRouter = require('./routes/apis/mock/Lottery')
 // let userRouter = require('./routes/apis/v1/User');
 // var testRouter = require('./routes/test');
 
@@ -45,6 +48,9 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/mock/User', userRouter);
+app.use('/mock/Card', cardRouter);
+app.use('/mock/CardPool', cardPoolRouter);
+app.use('/mock/Lottery', lotteryRouter);
 // app.use('/v1/User', userRouter);
 // app.use('/test/', testRouter);
 
